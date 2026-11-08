@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Яков Пальчиков, первая линия</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="ИИ-ассистенты первой линии для бизнеса: отвечают клиентам в чате и по телефону и передают менеджеру готовые заявки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+/* Hallmark · shape: Narrative Workflow · genre: editorial · theme: Newsprint (deal 3/3, seed prompt-ef54·27a804d8·2026-11-08·r0) · job: hire · draw: 5767f4
+ * hero: Ledge · nav: masthead · footer: colophon block · imagery: the product built (a chat transcript, a stopped draft, a handoff card) · signature: the 23:40 question a client really asks, printed as a dispatch in the hero and answered in stage one
+ * axes: light/slab-serif/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5 · weakest: E, display face swapped from Zilla Slab to Bitter because Zilla has no Cyrillic; same blunt slab at 700, checked in render */
+/* Hallmark · answered F1 · display face is Bitter, not the theme's Zilla Slab, because the page is in Russian and Zilla Slab ships no Cyrillic */
+
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1.0625rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-toast: 500;
+  --color-paper: oklch(94% 0.011 92); --color-paper-2: oklch(90.5% 0.015 88); --color-paper-3: oklch(87% 0.017 86);
+  --color-ink: oklch(17% 0.012 60); --color-ink-2: oklch(27% 0.012 58); --color-muted: oklch(46% 0.014 60);
+  --color-rule: oklch(68% 0.016 75); --color-rule-2: oklch(34% 0.012 60);
+  --color-accent: oklch(44% 0.13 32); --color-accent-ink: oklch(95% 0.012 90); --color-focus: oklch(48% 0.17 32);
+  --font-display: "Bitter", "Zilla Slab", ui-serif, Georgia, serif; --font-body: "Spectral", ui-serif, Georgia, serif;
+  --radius-card: 0; --rule-hair: 1px;
+  --tracking-display: -0.02em; --display-weight: 700;
+  --nav-h: 132px;
+  --color-paper-muted: oklch(78% 0.012 85);
+}
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; --nav-h: 112px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+
+/* base */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-padding-top: var(--space-xl); scrollbar-color: var(--color-muted) var(--color-paper); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 20%, transparent); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: var(--color-accent); text-decoration-thickness: 1px; text-decoration-color: var(--color-accent); text-underline-offset: 0.16em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { font-size: var(--text-display); }
+h2 { max-width: 22ch; font-size: var(--text-section); }
+h3 { font-size: var(--text-title); line-height: 1.2; }
+p { margin: 0; text-wrap: pretty; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 46ch; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.rule--double { box-sizing: content-box; height: 2px; margin: 0; border: 0; border-block: var(--rule-hair) solid var(--color-rule-2); }
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); }
+.skip:focus-visible { top: var(--space-md); }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-lg); border: 1px solid var(--color-ink); border-radius: 0; background: var(--color-ink); color: var(--color-paper); font: 700 0.9375rem/1 var(--font-display); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); text-decoration: none; }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn[aria-busy="true"] { cursor: progress; }
+.btn--quiet { background: transparent; color: var(--color-ink); border-color: transparent; border-block-color: var(--color-ink); }
+.btn--quiet:hover { background: var(--color-paper-2); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: background-color var(--dur-short) linear; } .btn:active { transform: none; } }
+
+/* masthead */
+.masthead { padding-top: var(--space-lg); }
+.masthead__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); padding-bottom: var(--space-sm); }
+.wordmark { font: 700 clamp(1.75rem, 2.4vw + 0.75rem, 2.75rem)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; }
+.wordmark:hover { text-decoration: none; }
+.masthead__links { display: flex; gap: var(--space-lg); padding-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
+.masthead__links a { color: var(--color-ink); text-decoration-color: var(--color-rule); }
+.masthead__links a:hover { text-decoration-color: var(--color-ink); }
+.masthead__links .masthead__role { margin-right: auto; }
+.masthead__action { white-space: nowrap; }
+
+/* hero: Ledge */
+.hero { min-height: min(calc(100svh - var(--nav-h)), 860px); display: flex; flex-direction: column; padding-block: var(--space-xl) var(--space-2xl); }
+.hero .container { flex: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr auto; column-gap: var(--gap-columns); }
+.dispatch { grid-column: 7 / 13; grid-row: 1; margin: 0; padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.dispatch blockquote { margin: 0; font: 400 var(--text-xl)/1.35 var(--font-body); color: var(--color-ink); }
+.dispatch blockquote p + p { margin-top: var(--space-sm); color: var(--color-ink-2); }
+.dispatch figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.hero__text { grid-column: 1 / 12; grid-row: 3; display: grid; gap: var(--space-lg); padding-top: var(--space-2xl); }
+.hero__text h1 { max-width: 15ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); padding-top: var(--space-xs); }
+
+/* stages */
+.stage { padding-block: var(--section-gap-s); }
+.stage + .stage { padding-top: 0; }
+.stage__rule { margin-bottom: var(--space-2xl); }
+.stage__head { display: grid; gap: var(--space-md); align-content: start; }
+.stage--split .stage__head { grid-column: 1 / 6; }
+.stage--split .stage__body { grid-column: 7 / 13; }
+.stage--wide .stage__head { grid-column: 1 / 8; margin-bottom: var(--space-2xl); }
+.stage--wide .stage__body { grid-column: 1 / 13; }
+
+.transcript { margin: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.transcript__row { display: grid; grid-template-columns: 4.5rem 7rem minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.transcript__row time, .transcript__row b { font-size: var(--text-sm); color: var(--color-muted); font-weight: 500; font-variant-numeric: tabular-nums; padding-top: var(--space-3xs); }
+.transcript__row p { font-size: var(--text-lg); line-height: 1.4; }
+.transcript__row--bot p { color: var(--color-ink); }
+.transcript__row--client p { color: var(--color-ink-2); }
+.transcript figcaption, .note { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+
+.verdict { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gap-columns); background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); padding: var(--space-xl); }
+.verdict > div { display: grid; gap: var(--space-md); align-content: start; }
+.verdict > div + div { border-left: var(--rule-hair) solid var(--color-rule); padding-left: var(--gap-columns); }
+.verdict h3 { font-size: var(--text-md); font-family: var(--font-body); font-weight: 500; letter-spacing: 0; color: var(--color-muted); }
+.verdict p { font: 700 var(--text-display-s)/1.08 var(--font-display); letter-spacing: var(--tracking-display); }
+.verdict del { color: var(--color-muted); text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; }
+.verdict ins { text-decoration: none; }
+
+.card-table { width: 100%; border-collapse: collapse; }
+.card-table caption { caption-side: bottom; text-align: left; padding-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.card-table th, .card-table td { text-align: left; vertical-align: baseline; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.card-table tr:first-child th, .card-table tr:first-child td { border-top: var(--rule-hair) solid var(--color-rule-2); }
+.card-table th { width: 33%; font: 500 var(--text-md)/1.3 var(--font-body); color: var(--color-muted); padding-right: var(--space-lg); }
+.card-table td { font: 700 var(--text-title)/1.25 var(--font-display); letter-spacing: var(--tracking-display); }
+
+/* works index */
+.works { padding-block: var(--section-gap-l) var(--section-gap); }
+.works__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); align-items: end; margin-bottom: var(--space-2xl); }
+.works__head h2 { grid-column: 1 / 7; }
+.works__head .lead { grid-column: 8 / 13; }
+.index { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--color-rule-2); }
+.index > li { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); padding-block: var(--space-xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.index h3 { grid-column: 1 / 5; }
+.index .index__task { grid-column: 5 / 9; }
+.index .index__result { grid-column: 9 / 13; }
+.index dt { font-size: var(--text-sm); color: var(--color-muted); font-weight: 500; }
+.index dd { margin: var(--space-2xs) 0 0; }
+.index__meta { display: block; margin-top: var(--space-xs); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); letter-spacing: 0; }
+.index > li.is-lead { padding-block: var(--space-2xl); }
+.index > li.is-lead h3 { font-size: var(--text-display-s); line-height: 1.05; }
+.index > li.is-lead dd { font-size: var(--text-lg); line-height: 1.45; }
+.index__link { grid-column: 1 / 5; margin-top: var(--space-lg); font-size: var(--text-md); }
+.works__note { margin-top: var(--space-md); max-width: 70ch; font: 500 var(--text-sm)/1.45 var(--font-body); color: var(--color-muted); }
+
+/* statement */
+.statement { padding-block: var(--section-gap-s); background: var(--color-ink); color: var(--color-paper); }
+.statement .container { align-items: center; row-gap: var(--space-xl); }
+.statement p { grid-column: 1 / 8; font: 700 var(--text-display-s)/1.1 var(--font-display); letter-spacing: var(--tracking-display); text-wrap: balance; }
+.portrait { grid-column: 9 / 13; margin: 0; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 30%; filter: grayscale(1) contrast(1.12); border: var(--rule-hair) solid var(--color-rule-2); }
+.portrait figcaption { padding-top: var(--space-xs); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-paper-muted); }
+
+/* services rows */
+.services { padding-block: var(--section-gap) var(--section-gap-s); }
+.services .container { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.services h2 { grid-column: 1 / 5; align-self: start; }
+.rows { grid-column: 5 / 13; list-style: none; margin: 0; padding: 0; }
+.rows li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--gap-columns); padding-block: var(--space-xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.rows li:first-child { border-top: var(--rule-hair) solid var(--color-rule-2); }
+.rows p { font-size: var(--text-lg); line-height: 1.45; color: var(--color-ink-2); }
+
+/* contact */
+.contact { padding-block: var(--section-gap-s) var(--section-gap); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule); }
+.contact .container { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-2xl); }
+.contact__head { grid-column: 1 / 6; display: grid; gap: var(--space-lg); align-content: start; }
+.contact__facts { display: grid; gap: var(--space-sm); margin: 0; padding-top: var(--space-md); }
+.contact__facts dt { font-size: var(--text-sm); color: var(--color-muted); font-weight: 500; }
+.contact__facts dd { margin: 0 0 var(--space-xs); font-size: var(--text-lg); }
+.fill { padding: 0 0.25em; border: 1px dashed color-mix(in oklch, var(--color-muted) 70%, transparent); border-radius: 0; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.form { grid-column: 7 / 13; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg) var(--gap-columns); align-content: start; }
+.field { display: grid; gap: var(--space-xs); }
+.field--wide { grid-column: 1 / -1; }
+.field label { font-size: var(--text-sm); font-weight: 500; color: var(--color-ink-2); }
+.field input, .field textarea { width: 100%; min-height: 48px; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-muted); border-radius: 0; background: var(--color-paper); color: var(--color-ink); outline: 2px solid transparent; outline-offset: -3px; transition: background-color var(--dur-micro) linear; }
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:hover, .field textarea:hover { background: var(--color-paper-3); }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -3px; transition: none; }
+.field input[aria-invalid="true"] { border-color: var(--color-error); }
+.field input:disabled, .field textarea:disabled { opacity: 0.55; cursor: not-allowed; }
+.form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); }
+.form__help { min-height: 1lh; font-size: var(--text-sm); color: var(--color-ink-2); }
+
+/* colophon */
+.colophon { padding-block: var(--space-2xl) var(--space-3xl); }
+.colophon .rule--double { margin-bottom: var(--space-xl); }
+.colophon p { max-width: 72ch; font-size: var(--text-sm); line-height: 1.6; color: var(--color-ink-2); }
+.colophon p + p { margin-top: var(--space-sm); }
+.colophon b { font: 700 var(--text-md)/1 var(--font-display); color: var(--color-ink); letter-spacing: 0; }
+
+/* stacking */
+@media (max-width: 60rem) {
+  .dispatch, .hero__text, .stage--split .stage__head, .stage--split .stage__body, .stage--wide .stage__head, .works__head h2, .works__head .lead, .index h3, .index .index__task, .index .index__result, .index__link, .statement p, .portrait, .services h2, .rows, .contact__head, .form { grid-column: 1 / -1; }
+  .hero { min-height: 0; }
+  .hero .container { grid-template-rows: auto; row-gap: var(--space-2xl); }
+  .hero__text { grid-row: 1; padding-top: 0; }
+  .dispatch { grid-row: 2; }
+  .stage--split .stage__head, .works__head h2, .services h2 { margin-bottom: var(--space-xl); }
+  .index .index__task, .index .index__result { margin-top: var(--space-md); }
+  .verdict { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); padding: var(--space-lg); }
+  .verdict > div + div { border-left: 0; padding-left: 0; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-lg); }
+}
+@media (max-width: 40rem) {
+  .masthead__top { flex-wrap: wrap; }
+  .masthead__links .masthead__role { display: none; }
+  .transcript__row { grid-template-columns: 3.5rem minmax(0, 1fr); }
+  .transcript__row b { grid-column: 2; padding-top: 0; }
+  .transcript__row time { grid-row: 1 / 3; }
+  .transcript__row p { grid-column: 2; }
+  .rows li { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-xs); }
+  .card-table th, .card-table td { display: block; width: 100%; }
+  .card-table th { padding-bottom: 0; border-bottom: 0; }
+  .card-table td { padding-top: var(--space-2xs); }
+  .card-table tr:first-child td { border-top: 0; }
+  .form { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 22rem; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="masthead">
+  <div class="container">
+    <div class="masthead__top">
+      <a class="wordmark" href="#main">Яков Пальчиков</a>
+      <a class="btn btn--quiet masthead__action" href="#contact">Написать</a>
+    </div>
+    <hr class="rule--double">
+    <nav class="masthead__links" aria-label="Разделы">
+      <span class="masthead__role">ИИ-ассистенты первой линии для бизнеса</span>
+      <a href="#stage-1">Как это работает</a>
+      <a href="#works">Работы</a>
+      <a href="#services">Что я настраиваю</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero__text">
+        <h1 id="hero-title">Кто ответит вашему клиенту в 23:40?</h1>
+        <p class="lead">Я настраиваю ИИ-ассистентов, которые отвечают в чате и по телефону.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#contact">Обсудить задачу</a>
+        </div>
+      </div>
+      <figure class="dispatch">
+        <blockquote>
+          <p>«Есть ли в наличии Vega в синем? Хочу посмотреть завтра».</p>
+        </blockquote>
+        <figcaption>Пятница, 23:40, чат автосалона. Пример из учебного проекта.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="stage stage--split" id="stage-1" aria-labelledby="s1">
+    <div class="container">
+      <hr class="rule--double stage__rule">
+      <div class="grid">
+        <div class="stage__head">
+          <h2 id="s1">1. Клиент спрашивает ночью</h2>
+          <p class="lead">Ассистент отвечает через минуту, по ценам и наличию вашей компании.</p>
+        </div>
+        <figure class="stage__body transcript">
+          <div class="transcript__row transcript__row--client"><time>23:40</time><b>Клиент</b><p>Есть ли в наличии Vega в синем? Хочу посмотреть завтра.</p></div>
+          <div class="transcript__row transcript__row--bot"><time>23:40</time><b>Ассистент</b><p>Есть одна, стоит в салоне. Записать вас на тест-драйв? Скажите удобное время.</p></div>
+          <div class="transcript__row transcript__row--client"><time>23:42</time><b>Клиент</b><p>Давайте в 11. А скидку сделаете?</p></div>
+          <div class="transcript__row transcript__row--bot"><time>23:42</time><b>Ассистент</b><p>Записал на 11:00. Скидку решает менеджер, я передал ему ваш вопрос.</p></div>
+          <figcaption>Диалог из учебного проекта: дилер и марка Vega условные.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage stage--wide" aria-labelledby="s2">
+    <div class="container">
+      <hr class="rule--double stage__rule">
+      <div class="grid">
+        <div class="stage__head">
+          <h2 id="s2">2. Ассистент не обещает лишнего</h2>
+          <p class="lead">Скидки, гарантии и сроки ремонта подтверждает только сотрудник.</p>
+        </div>
+        <div class="stage__body verdict">
+          <div>
+            <h3>Черновик нейросети</h3>
+            <p><del>Конечно, скидку сделаем!</del></p>
+          </div>
+          <div>
+            <h3>Ушло клиенту</h3>
+            <p><ins>Скидку решает менеджер, я передал ему ваш вопрос.</ins></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage stage--wide" aria-labelledby="s3">
+    <div class="container">
+      <hr class="rule--double stage__rule">
+      <div class="grid">
+        <div class="stage__head">
+          <h2 id="s3">3. Утром менеджер видит карточку</h2>
+          <p class="lead">Ему не нужно перечитывать переписку: всё главное уже собрано.</p>
+        </div>
+        <div class="stage__body">
+          <table class="card-table">
+            <caption>Карточка обращения, пример. Телефон клиента скрыт от нейросети.</caption>
+            <tbody>
+              <tr><th scope="row">Клиент</th><td>Из чата автосалона, ночью</td></tr>
+              <tr><th scope="row">Уже сделано</th><td>Записан на тест-драйв, завтра в 11:00</td></tr>
+              <tr><th scope="row">Решить вам</th><td>Скидка на Vega</td></tr>
+              <tr><th scope="row">Ответить</th><td>До визита клиента</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="works" id="works" aria-labelledby="works-title">
+    <div class="container">
+      <div class="works__head">
+        <h2 id="works-title">Три проекта 2026 года</h2>
+        <p class="lead">Задача и результат для заказчика.</p>
+      </div>
+      <ol class="index">
+        <li class="is-lead">
+          <h3>Ассистенты для автосалона<span class="index__meta">Учебный проект</span></h3>
+          <dl class="index__task"><dt>Задача</dt><dd>Первая линия для продаж, сервиса и подбора персонала в одном чате.</dd></dl>
+          <dl class="index__result"><dt>Результат</dt><dd>Ночные обращения не теряются, сложные вопросы доходят до сотрудника с карточкой.</dd></dl>
+          <a class="index__link" href="https://yagitpa.github.io/avtograd-ai-assistants/" target="_blank" rel="noopener">Страница проекта</a>
+        </li>
+        <li>
+          <h3>Голосовой агент для мебельной фабрики<span class="index__meta">Тестовое задание</span></h3>
+          <dl class="index__task"><dt>Задача</dt><dd>Обзвонить заявки на кухни и понять, кого передать дизайнеру.</dd></dl>
+          <dl class="index__result"><dt>Результат</dt><dd>Дизайнер получает отобранные заявки, занятым клиентам назначен перезвон.</dd></dl>
+        </li>
+        <li>
+          <h3>Ассистент по базе знаний<span class="index__meta">Учебный проект</span></h3>
+          <dl class="index__task"><dt>Задача</dt><dd>Находить ответ в десятках документов по смыслу.</dd></dl>
+          <dl class="index__result"><dt>Результат</dt><dd>Ответ со ссылкой на источник. Нет ответа в документах, ассистент так и скажет.</dd></dl>
+        </li>
+      </ol>
+      <p class="works__note">Компании и данные в проектах условные. На реальном потоке клиентов эффект ещё не измерялся, поэтому цифр здесь нет.</p>
+    </div>
+  </section>
+
+  <section class="statement" aria-label="Принцип работы">
+    <div class="container grid">
+      <p>Я отвечаю за то, что ассистент скажет вашему клиенту.</p>
+      <figure class="portrait">
+        <img src="images/yakov.jpg" width="800" height="1000" alt="Яков Пальчиков читает книгу на скамейке в осеннем парке" loading="lazy">
+        <figcaption>Яков Пальчиков, промпт-инженер.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title">Что я настраиваю</h2>
+      <ul class="rows">
+        <li><h3>Чат-ассистента</h3><p>В Telegram или на сайте, по вашим ценам и правилам.</p></li>
+        <li><h3>Голосового агента</h3><p>Звонит по заявкам, уточняет бюджет и сроки.</p></li>
+        <li><h3>Поиск по документам</h3><p>Сотрудники получают ответ с источником.</p></li>
+        <li><h3>Фоновые сценарии</h3><p>Напоминания и сводки по расписанию, без участия людей.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact__head">
+        <h2 id="contact-title">Расскажите, кто вам пишет</h2>
+        <p class="lead">Отвечу и предложу, с чего начать ассистента.</p>
+        <dl class="contact__facts">
+          <dt>Почта</dt><dd><a href="mailto:y.palchikov@gmail.com">y.palchikov@gmail.com</a></dd>
+          <dt>Telegram</dt><dd><a href="https://t.me/lavashek1" target="_blank" rel="noopener">@lavashek1</a></dd>
+        </dl>
+      </div>
+      <form class="form" data-endpoint="" novalidate>
+        <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+()\s-]{6,}"></div>
+        <div class="field field--wide"><label for="f-email">Почта</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field field--wide"><label for="f-topic">Тема сообщения</label><textarea id="f-topic" name="topic" required></textarea></div>
+        <div class="form__foot">
+          <button class="btn" type="submit">Отправить заявку</button>
+          <p class="form__help" id="form-help" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <hr class="rule--double">
+    <p><b>Яков Пальчиков.</b> ИИ-ассистенты первой линии для бизнеса: чат, телефон, база знаний и передача менеджеру.</p>
+    <p>Сайт собран в ноябре 2026 года как домашнее задание курса промпт-инжиниринга Zerocoder. Кейсы на странице учебные, компании и данные в них условные.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('form[data-endpoint]').forEach((form) => {
+  const help = form.querySelector('[aria-live]');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fields = [...form.querySelectorAll('input, textarea')];
+    const bad = fields.filter((f) => !f.checkValidity());
+    fields.forEach((f) => f.setAttribute('aria-invalid', bad.includes(f) ? 'true' : 'false'));
+    if (bad.length) {
+      bad[0].setAttribute('aria-describedby', help.id);
+      const label = form.querySelector('label[for="' + bad[0].id + '"]').textContent;
+      help.textContent = 'Проверьте поле «' + label + '»: оно пустое или заполнено не полностью.';
+      bad[0].focus();
+      return;
+    }
+    if (!form.dataset.endpoint) { help.textContent = 'Ничего не отправлено: форма пока не подключена. Напишите на y.palchikov@gmail.com или в Telegram @lavashek1.'; return; }
+    fetch(form.dataset.endpoint, { method: 'POST', body: new FormData(form) })
+      .then((r) => { help.textContent = r.ok ? 'Заявка ушла. Отвечу на ' + form.querySelector('[type=email]').value.trim() + '.' : 'Не получилось отправить. Попробуйте через минуту.'; })
+      .catch(() => { help.textContent = 'Не получилось отправить. Попробуйте через минуту.'; });
+  });
+});
+</script>
+</body>
+</html>
