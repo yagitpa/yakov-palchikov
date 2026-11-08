@@ -3,324 +3,306 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Яков Пальчиков, первая линия</title>
+<title>Яков Пальчиков, ИИ-ассистенты</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="ИИ-ассистенты первой линии для бизнеса: отвечают клиентам в чате и по телефону и передают менеджеру готовые заявки.">
+<meta name="description" content="Настраиваю ИИ-ассистентов для бизнеса: отвечают клиентам, не обещают лишнего и передают менеджеру готовую заявку. Демо прямо на странице.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Spectral:ital,wght@0,400;0,500;1,400&display=swap&subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap&subset=cyrillic" rel="stylesheet">
 <style>
-/* Hallmark · shape: Narrative Workflow · genre: editorial · theme: Newsprint (deal 3/3, seed prompt-ef54·27a804d8·2026-11-08·r0) · job: hire · draw: 5767f4
- * hero: Ledge · nav: masthead · footer: colophon block · imagery: the product built (a chat transcript, a stopped draft, a handoff card) · signature: the 23:40 question a client really asks, printed as a dispatch in the hero and answered in stage one
- * axes: light/slab-serif/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5 · weakest: E, display face swapped from Zilla Slab to Bitter because Zilla has no Cyrillic; same blunt slab at 700, checked in render */
-/* Hallmark · answered F1 · display face is Bitter, not the theme's Zilla Slab, because the page is in Russian and Zilla Slab ships no Cyrillic */
+/* Hallmark · shape: custom, demo-led (the product works in the hero, then the work, the person, the services, the enquiry) · genre: modern-minimal · theme: custom · job: hire · draw: none (custom by request: the user rejected the dealt editorial concept)
+ * hero: Stage, the text on five columns and a working scripted chat on seven · nav: edge-aligned, wordmark, three links and the Telegram action · footer: colophon line · imagery: the product built as a scripted demo, one real capture of the AvtoGrad project page, one portrait · signature: a chat the visitor drives with question buttons while the manager's handoff card fills in beside it
+ * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5 · weakest: E, a scripted demo must never pass for live AI; it is labelled as a script above the chat and in the card */
+/* Hallmark · dismissed F4 · .btn--light is the same primary recipe inverted for the ink contact band, never shown beside the ink primary */
 
 :root {
   color-scheme: light;
-  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
-  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1.0625rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
-  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
-  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
-  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
-  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
-  --z-toast: 500;
-  --color-paper: oklch(94% 0.011 92); --color-paper-2: oklch(90.5% 0.015 88); --color-paper-3: oklch(87% 0.017 86);
-  --color-ink: oklch(17% 0.012 60); --color-ink-2: oklch(27% 0.012 58); --color-muted: oklch(46% 0.014 60);
-  --color-rule: oklch(68% 0.016 75); --color-rule-2: oklch(34% 0.012 60);
-  --color-accent: oklch(44% 0.13 32); --color-accent-ink: oklch(95% 0.012 90); --color-focus: oklch(48% 0.17 32);
-  --font-display: "Bitter", "Zilla Slab", ui-serif, Georgia, serif; --font-body: "Spectral", ui-serif, Georgia, serif;
-  --radius-card: 0; --rule-hair: 1px;
-  --tracking-display: -0.02em; --display-weight: 700;
-  --nav-h: 132px;
-  --color-paper-muted: oklch(78% 0.012 85);
-}
-@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; --nav-h: 112px; } }
-@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+  /* layout: a working demo in the hero, then three cases each proven by its own real object */
+  --color-paper: oklch(97% 0.006 95);
+  --color-paper-2: oklch(93.5% 0.009 95);
+  --color-paper-3: oklch(89.5% 0.012 95);
+  --color-plate: oklch(99.4% 0.003 95);
+  --color-ink: oklch(22% 0.03 262);
+  --color-ink-2: oklch(34% 0.03 262);
+  --color-muted: oklch(48% 0.02 262);
+  --color-rule: oklch(86% 0.012 262);
+  --color-accent: oklch(48% 0.17 262);
+  --color-accent-2: oklch(42% 0.17 262);
+  --color-accent-ink: oklch(98.5% 0.006 262);
+  --color-accent-soft: oklch(93% 0.035 262);
+  --color-mark: oklch(91% 0.13 98);
+  --color-stop: oklch(50% 0.16 35);
+  --color-term: oklch(21% 0.02 262);
+  --color-term-ink: oklch(91% 0.015 262);
+  --color-term-muted: oklch(70% 0.03 262);
+  --color-term-hi: oklch(86% 0.12 98);
+  --color-focus: oklch(55% 0.2 262);
+  --color-error: oklch(52% 0.19 27);
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Golos Text", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-/* base */
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px;
+  --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.125rem; --text-xl: 1.375rem;
+  --text-display: clamp(2.375rem, 2.6vw + 1rem, 3.625rem);
+  --text-display-s: clamp(2rem, 2.6vw + 0.75rem, 3.25rem);
+  --text-section: clamp(2.25rem, 2.4vw + 1rem, 3.5rem);
+  --text-title: clamp(1.25rem, 0.7vw + 0.9rem, 1.625rem);
+  --text-lead: clamp(1.0625rem, 0.4vw + 0.95rem, 1.3125rem);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px;
+  --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --radius-lg: 20px; --radius-md: 14px; --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --dur-micro: 120ms; --dur-short: 220ms;
+  --tracking-display: -0.035em;
+  --z-toast: 500;
+}
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 112px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 64px; --section-gap: 72px; --section-gap-l: 88px; --gap-columns: 16px; } }
+
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
-html { scroll-padding-top: var(--space-xl); scrollbar-color: var(--color-muted) var(--color-paper); }
-body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-accent) 20%, transparent); }
+html { scroll-padding-top: var(--space-lg); }
+html { scrollbar-color: var(--color-muted) var(--color-paper); }
+body { caret-color: var(--color-accent); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-mark); }
 :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-a { color: var(--color-accent); text-decoration-thickness: 1px; text-decoration-color: var(--color-accent); text-underline-offset: 0.16em; }
-a:hover { text-decoration-thickness: 2px; }
-a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 800; letter-spacing: var(--tracking-display); line-height: 1.04; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
 h1 { font-size: var(--text-display); }
-h2 { max-width: 22ch; font-size: var(--text-section); }
-h3 { font-size: var(--text-title); line-height: 1.2; }
+h2 { font-size: var(--text-section); max-width: 18ch; }
+h3 { font-size: var(--text-title); line-height: 1.2; letter-spacing: -0.02em; font-weight: 800; }
 p { margin: 0; text-wrap: pretty; }
-.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 46ch; }
+.lead { font-size: var(--text-lead); line-height: 1.5; color: var(--color-ink-2); max-width: 44ch; }
+a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--color-accent-2); text-decoration-thickness: 2px; }
+img { max-width: 100%; height: auto; display: block; }
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
-.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.cols { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.rule--double { box-sizing: content-box; height: 2px; margin: 0; border: 0; border-block: var(--rule-hair) solid var(--color-rule-2); }
-.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); }
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-accent-ink); }
 .skip:focus-visible { top: var(--space-md); }
 
 /* controls */
-.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-lg); border: 1px solid var(--color-ink); border-radius: 0; background: var(--color-ink); color: var(--color-paper); font: 700 0.9375rem/1 var(--font-display); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-.btn:hover { background: var(--color-ink-2); text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-lg); border: 1px solid var(--color-ink); border-radius: var(--radius-pill); background: var(--color-ink); color: var(--color-accent-ink); font: 600 var(--text-md)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn:hover { background: var(--color-ink-2); color: var(--color-accent-ink); text-decoration: none; }
 .btn:active { transform: translateY(1px); }
-.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; }
 .btn[aria-busy="true"] { cursor: progress; }
-.btn--quiet { background: transparent; color: var(--color-ink); border-color: transparent; border-block-color: var(--color-ink); }
-.btn--quiet:hover { background: var(--color-paper-2); }
-@media (prefers-reduced-motion: reduce) { .btn { transition: background-color var(--dur-short) linear; } .btn:active { transform: none; } }
+.btn--quiet { background: transparent; color: var(--color-ink); border-color: var(--color-rule); }
+.btn--quiet:hover { background: var(--color-paper-2); color: var(--color-ink); }
 
-/* masthead */
-.masthead { padding-top: var(--space-lg); }
-.masthead__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md); padding-bottom: var(--space-sm); }
-.wordmark { font: 700 clamp(1.75rem, 2.4vw + 0.75rem, 2.75rem)/1 var(--font-display); letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; }
-.wordmark:hover { text-decoration: none; }
-.masthead__links { display: flex; gap: var(--space-lg); padding-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
-.masthead__links a { color: var(--color-ink); text-decoration-color: var(--color-rule); }
-.masthead__links a:hover { text-decoration-color: var(--color-ink); }
-.masthead__links .masthead__role { margin-right: auto; }
-.masthead__action { white-space: nowrap; }
+/* nav */
+.nav { padding-block: var(--space-lg); }
+.nav .container { display: flex; align-items: center; gap: var(--space-lg); }
+.wordmark { font: 800 var(--text-lg)/1 var(--font-display); letter-spacing: -0.02em; color: var(--color-ink); text-decoration: none; margin-right: auto; }
+.wordmark:hover { color: var(--color-ink); text-decoration: none; }
+.nav__links { display: flex; gap: var(--space-lg); }
+.nav__links a { color: var(--color-ink-2); text-decoration: none; font-size: var(--text-md); }
+.nav__links a:hover { color: var(--color-ink); text-decoration: underline; }
 
-/* hero: Ledge */
-.hero { min-height: min(calc(100svh - var(--nav-h)), 860px); display: flex; flex-direction: column; padding-block: var(--space-xl) var(--space-2xl); }
-.hero .container { flex: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr auto; column-gap: var(--gap-columns); }
-.dispatch { grid-column: 7 / 13; grid-row: 1; margin: 0; padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule-2); }
-.dispatch blockquote { margin: 0; font: 400 var(--text-xl)/1.35 var(--font-body); color: var(--color-ink); }
-.dispatch blockquote p + p { margin-top: var(--space-sm); color: var(--color-ink-2); }
-.dispatch figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
-.hero__text { grid-column: 1 / 12; grid-row: 3; display: grid; gap: var(--space-lg); padding-top: var(--space-2xl); }
-.hero__text h1 { max-width: 15ch; }
+/* hero */
+.hero { padding-block: var(--space-xl) var(--space-2xl); }
+.hero .cols { align-items: center; row-gap: var(--space-2xl); }
+.hero__text { grid-column: 1 / 6; display: grid; gap: var(--space-lg); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); padding-top: var(--space-xs); }
+.demo { grid-column: 6 / 13; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: var(--space-md); }
+.demo__note { grid-column: 1 / -1; font-size: var(--text-sm); color: var(--color-muted); }
 
-/* stages */
-.stage { padding-block: var(--section-gap-s); }
-.stage + .stage { padding-top: 0; }
-.stage__rule { margin-bottom: var(--space-2xl); }
-.stage__head { display: grid; gap: var(--space-md); align-content: start; }
-.stage--split .stage__head { grid-column: 1 / 6; }
-.stage--split .stage__body { grid-column: 7 / 13; }
-.stage--wide .stage__head { grid-column: 1 / 8; margin-bottom: var(--space-2xl); }
-.stage--wide .stage__body { grid-column: 1 / 13; }
+.chat { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 540px; background: var(--color-plate); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); overflow: hidden; }
+.chat__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-sm); padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--color-rule); }
+.chat__head b { font: 600 var(--text-md)/1.3 var(--font-body); }
+.chat__head span { font-size: var(--text-sm); color: var(--color-muted); }
+.chat__log { list-style: none; margin: 0; padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-sm); overflow-y: auto; }
+.msg { max-width: 86%; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); font-size: var(--text-md); line-height: 1.45; }
+.msg--client { align-self: flex-end; background: var(--color-paper-2); color: var(--color-ink); border-bottom-right-radius: var(--space-2xs); }
+.msg--bot { align-self: flex-start; background: var(--color-accent); color: var(--color-accent-ink); border-bottom-left-radius: var(--space-2xs); }
+.msg--check { align-self: stretch; max-width: none; padding: var(--space-xs) 0; font-size: var(--text-sm); color: var(--color-stop); border-radius: 0; }
+.msg--check del { text-decoration-thickness: 1px; }
+.msg--typing { align-self: flex-start; background: var(--color-accent-soft); color: var(--color-accent-2); font-size: var(--text-sm); }
+.chat__ask { display: flex; flex-wrap: wrap; gap: var(--space-xs); padding: var(--space-md) var(--space-lg) var(--space-lg); border-top: 1px solid var(--color-rule); background: var(--color-paper); }
+.chat__ask[hidden] { display: none; }
+.ask { min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-accent); border-radius: var(--radius-pill); background: var(--color-plate); color: var(--color-accent-2); font: 500 var(--text-sm)/1 var(--font-body); cursor: pointer; transition: background-color var(--dur-micro) var(--ease-out); }
+.ask:hover { background: var(--color-accent-soft); }
+.ask:active { background: var(--color-paper-3); }
+.ask:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.ask:disabled { opacity: 0.5; cursor: not-allowed; }
+.ask--reset { border-color: var(--color-rule); color: var(--color-ink-2); }
 
-.transcript { margin: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
-.transcript__row { display: grid; grid-template-columns: 4.5rem 7rem minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
-.transcript__row time, .transcript__row b { font-size: var(--text-sm); color: var(--color-muted); font-weight: 500; font-variant-numeric: tabular-nums; padding-top: var(--space-3xs); }
-.transcript__row p { font-size: var(--text-lg); line-height: 1.4; }
-.transcript__row--bot p { color: var(--color-ink); }
-.transcript__row--client p { color: var(--color-ink-2); }
-.transcript figcaption, .note { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
+.handoff { align-self: start; display: grid; gap: var(--space-md); padding: var(--space-lg); background: var(--color-plate); border: 1px solid var(--color-rule); border-top: 4px solid var(--color-ink); border-radius: var(--radius-lg); }
+.handoff__title { font: 800 var(--text-lg)/1.2 var(--font-display); letter-spacing: -0.01em; }
+.handoff__status { font-size: var(--text-sm); color: var(--color-muted); }
+.handoff dl { margin: 0; display: grid; gap: var(--space-sm); }
+.handoff dt { font-size: var(--text-sm); color: var(--color-muted); }
+.handoff dd { margin: var(--space-3xs) 0 0; font: 500 var(--text-sm)/1.4 var(--font-mono); color: var(--color-ink); }
+.handoff dd.is-empty { color: var(--color-muted); font-family: var(--font-body); }
+.handoff dd.is-new { background: var(--color-mark); box-shadow: 0 0 0 var(--space-2xs) var(--color-mark); }
 
-.verdict { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gap-columns); background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); padding: var(--space-xl); }
-.verdict > div { display: grid; gap: var(--space-md); align-content: start; }
-.verdict > div + div { border-left: var(--rule-hair) solid var(--color-rule); padding-left: var(--gap-columns); }
-.verdict h3 { font-size: var(--text-md); font-family: var(--font-body); font-weight: 500; letter-spacing: 0; color: var(--color-muted); }
-.verdict p { font: 700 var(--text-display-s)/1.08 var(--font-display); letter-spacing: var(--tracking-display); }
-.verdict del { color: var(--color-muted); text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; }
-.verdict ins { text-decoration: none; }
+/* works */
+.works { padding-block: var(--section-gap) var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.works__head { margin-bottom: var(--space-2xl); display: grid; gap: var(--space-md); }
+.case { padding-block: var(--space-2xl); border-top: 1px solid var(--color-rule); }
+.case .cols { row-gap: var(--space-xl); align-items: start; }
+.case__text { display: grid; gap: var(--space-md); align-content: start; }
+.case__kind { font-size: var(--text-sm); color: var(--color-muted); }
+.case__text p { max-width: 52ch; }
+.case dl { margin: var(--space-xs) 0 0; display: grid; gap: var(--space-md); }
+.case dt { font-weight: 600; }
+.case dd { margin: var(--space-3xs) 0 0; color: var(--color-ink-2); max-width: 52ch; }
 
-.card-table { width: 100%; border-collapse: collapse; }
-.card-table caption { caption-side: bottom; text-align: left; padding-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
-.card-table th, .card-table td { text-align: left; vertical-align: baseline; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
-.card-table tr:first-child th, .card-table tr:first-child td { border-top: var(--rule-hair) solid var(--color-rule-2); }
-.card-table th { width: 33%; font: 500 var(--text-md)/1.3 var(--font-body); color: var(--color-muted); padding-right: var(--space-lg); }
-.card-table td { font: 700 var(--text-title)/1.25 var(--font-display); letter-spacing: var(--tracking-display); }
+.case--a .case__text { grid-column: 1 / 6; }
+.case--a .case__media { grid-column: 7 / 13; }
+.shot { margin: 0; display: grid; gap: var(--space-sm); }
+.shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border: 1px solid var(--color-rule); border-radius: var(--radius-lg); background: var(--color-paper-2); }
+.shot figcaption, .term figcaption, .log figcaption { font-size: var(--text-sm); color: var(--color-muted); }
+.figs { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: var(--space-md) 0 0; }
+.figs > div { padding: var(--space-md) var(--space-lg); border-left: 1px solid var(--color-rule); }
+.figs > div:first-child { padding-left: 0; border-left: 0; }
+.figs dt { font: 800 var(--text-display-s)/1 var(--font-display); letter-spacing: var(--tracking-display); font-variant-numeric: tabular-nums; }
+.figs dd { margin: var(--space-xs) 0 0; color: var(--color-ink-2); max-width: 28ch; }
 
-/* works index */
-.works { padding-block: var(--section-gap-l) var(--section-gap); }
-.works__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); align-items: end; margin-bottom: var(--space-2xl); }
-.works__head h2 { grid-column: 1 / 7; }
-.works__head .lead { grid-column: 8 / 13; }
-.index { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--color-rule-2); }
-.index > li { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); padding-block: var(--space-xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
-.index h3 { grid-column: 1 / 5; }
-.index .index__task { grid-column: 5 / 9; }
-.index .index__result { grid-column: 9 / 13; }
-.index dt { font-size: var(--text-sm); color: var(--color-muted); font-weight: 500; }
-.index dd { margin: var(--space-2xs) 0 0; }
-.index__meta { display: block; margin-top: var(--space-xs); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); letter-spacing: 0; }
-.index > li.is-lead { padding-block: var(--space-2xl); }
-.index > li.is-lead h3 { font-size: var(--text-display-s); line-height: 1.05; }
-.index > li.is-lead dd { font-size: var(--text-lg); line-height: 1.45; }
-.index__link { grid-column: 1 / 5; margin-top: var(--space-lg); font-size: var(--text-md); }
-.works__note { margin-top: var(--space-md); max-width: 70ch; font: 500 var(--text-sm)/1.45 var(--font-body); color: var(--color-muted); }
+.case--b .case__text { grid-column: 8 / 13; grid-row: 1; }
+.case--b .case__media { grid-column: 1 / 7; grid-row: 1; }
+.log { margin: 0; }
+.log ol { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--color-ink); }
+.log li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: 1px solid var(--color-rule); }
+.log li b { font: 500 var(--text-md)/1.5 var(--font-mono); color: var(--color-accent); }
+.log li:last-child { background: var(--color-accent-soft); padding-inline: var(--space-md); border-bottom-color: var(--color-accent-soft); }
+.log li:last-child b { color: var(--color-accent-2); }
+.log figcaption { padding-top: var(--space-sm); }
 
-/* statement */
-.statement { padding-block: var(--section-gap-s); background: var(--color-ink); color: var(--color-paper); }
-.statement .container { align-items: center; row-gap: var(--space-xl); }
-.statement p { grid-column: 1 / 8; font: 700 var(--text-display-s)/1.1 var(--font-display); letter-spacing: var(--tracking-display); text-wrap: balance; }
-.portrait { grid-column: 9 / 13; margin: 0; }
-.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 30%; filter: grayscale(1) contrast(1.12); border: var(--rule-hair) solid var(--color-rule-2); }
-.portrait figcaption { padding-top: var(--space-xs); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-paper-muted); }
+.case--c .case__text { grid-column: 1 / 6; }
+.case--c .case__media { grid-column: 7 / 13; }
+.term { margin: 0; display: grid; gap: var(--space-sm); }
+.term pre { margin: 0; padding: var(--space-lg); background: var(--color-term); color: var(--color-term-ink); border-radius: var(--radius-lg); font: 400 var(--text-sm)/1.65 var(--font-mono); white-space: pre-wrap; overflow-x: auto; }
+.term .p { color: var(--color-term-muted); }
+.term .hi { color: var(--color-term-hi); }
 
-/* services rows */
+/* about */
+.about { padding-block: var(--section-gap-s); background: var(--color-paper-2); }
+.about .cols { align-items: center; row-gap: var(--space-xl); }
+.about__photo { grid-column: 1 / 5; margin: 0; }
+.about__photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 30%; border-radius: var(--radius-lg); }
+.about__text { grid-column: 6 / 12; display: grid; gap: var(--space-lg); }
+.about__text p { font-size: var(--text-xl); line-height: 1.45; color: var(--color-ink-2); max-width: 40ch; }
+.about__text p:first-of-type { color: var(--color-ink); }
+.stack { display: flex; flex-wrap: wrap; gap: var(--space-xs); list-style: none; margin: 0; padding: 0; }
+.stack li { padding: var(--space-2xs) var(--space-sm); border: 1px solid var(--color-rule); border-radius: var(--radius-pill); background: var(--color-plate); font-size: var(--text-sm); color: var(--color-ink-2); }
+
+/* services */
 .services { padding-block: var(--section-gap) var(--section-gap-s); }
-.services .container { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
-.services h2 { grid-column: 1 / 5; align-self: start; }
-.rows { grid-column: 5 / 13; list-style: none; margin: 0; padding: 0; }
-.rows li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--gap-columns); padding-block: var(--space-xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
-.rows li:first-child { border-top: var(--rule-hair) solid var(--color-rule-2); }
-.rows p { font-size: var(--text-lg); line-height: 1.45; color: var(--color-ink-2); }
+.services h2 { margin-bottom: var(--space-2xl); }
+.svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
+.svc li { display: grid; gap: var(--space-sm); align-content: start; padding-top: var(--space-md); border-top: 2px solid var(--color-ink); min-height: 200px; }
+.svc p { color: var(--color-ink-2); }
 
 /* contact */
-.contact { padding-block: var(--section-gap-s) var(--section-gap); background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule); }
-.contact .container { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-2xl); }
+.contact { padding-block: var(--section-gap-s); background: var(--color-ink); color: var(--color-accent-ink); }
+.contact .cols { row-gap: var(--space-2xl); }
 .contact__head { grid-column: 1 / 6; display: grid; gap: var(--space-lg); align-content: start; }
-.contact__facts { display: grid; gap: var(--space-sm); margin: 0; padding-top: var(--space-md); }
-.contact__facts dt { font-size: var(--text-sm); color: var(--color-muted); font-weight: 500; }
-.contact__facts dd { margin: 0 0 var(--space-xs); font-size: var(--text-lg); }
-.fill { padding: 0 0.25em; border: 1px dashed color-mix(in oklch, var(--color-muted) 70%, transparent); border-radius: 0; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.contact__head .lead { color: var(--color-paper-3); }
+.contact a { color: var(--color-accent-ink); }
+.contact a:hover { color: var(--color-mark); }
+.contact__facts { margin: 0; display: grid; gap: var(--space-xs); padding-top: var(--space-md); }
+.contact__facts dt { font-size: var(--text-sm); color: var(--color-paper-3); }
+.contact__facts dd { margin: 0 0 var(--space-sm); font-size: var(--text-xl); }
 .form { grid-column: 7 / 13; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-lg) var(--gap-columns); align-content: start; }
 .field { display: grid; gap: var(--space-xs); }
 .field--wide { grid-column: 1 / -1; }
-.field label { font-size: var(--text-sm); font-weight: 500; color: var(--color-ink-2); }
-.field input, .field textarea { width: 100%; min-height: 48px; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-muted); border-radius: 0; background: var(--color-paper); color: var(--color-ink); outline: 2px solid transparent; outline-offset: -3px; transition: background-color var(--dur-micro) linear; }
+.field label { font-size: var(--text-sm); color: var(--color-paper-3); }
+.field input, .field textarea { width: 100%; min-height: 48px; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-muted); border-radius: var(--radius-md); background: var(--color-ink-2); color: var(--color-accent-ink); outline: 2px solid transparent; outline-offset: 1px; transition: background-color var(--dur-micro) linear; }
 .field textarea { min-height: 120px; resize: vertical; }
-.field input:hover, .field textarea:hover { background: var(--color-paper-3); }
-.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -3px; transition: none; }
-.field input[aria-invalid="true"] { border-color: var(--color-error); }
-.field input:disabled, .field textarea:disabled { opacity: 0.55; cursor: not-allowed; }
+.field input:hover, .field textarea:hover { background: var(--color-ink); }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--color-mark); outline-offset: 1px; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--color-mark); }
+.field input:disabled, .field textarea:disabled { opacity: 0.5; cursor: not-allowed; }
 .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); }
-.form__help { min-height: 1lh; font-size: var(--text-sm); color: var(--color-ink-2); }
+.btn--light { background: var(--color-accent-ink); color: var(--color-ink); border-color: var(--color-accent-ink); }
+.btn--light:hover { background: var(--color-mark); color: var(--color-ink); border-color: var(--color-mark); }
+.btn--light:focus-visible { outline-color: var(--color-mark); }
+.form__help { min-height: 1lh; font-size: var(--text-sm); color: var(--color-paper-3); }
 
-/* colophon */
-.colophon { padding-block: var(--space-2xl) var(--space-3xl); }
-.colophon .rule--double { margin-bottom: var(--space-xl); }
-.colophon p { max-width: 72ch; font-size: var(--text-sm); line-height: 1.6; color: var(--color-ink-2); }
-.colophon p + p { margin-top: var(--space-sm); }
-.colophon b { font: 700 var(--text-md)/1 var(--font-display); color: var(--color-ink); letter-spacing: 0; }
+/* footer */
+.foot { padding-block: var(--space-xl); }
+.foot p { font-size: var(--text-sm); color: var(--color-muted); max-width: 72ch; }
 
 /* stacking */
-@media (max-width: 60rem) {
-  .dispatch, .hero__text, .stage--split .stage__head, .stage--split .stage__body, .stage--wide .stage__head, .works__head h2, .works__head .lead, .index h3, .index .index__task, .index .index__result, .index__link, .statement p, .portrait, .services h2, .rows, .contact__head, .form { grid-column: 1 / -1; }
-  .hero { min-height: 0; }
-  .hero .container { grid-template-rows: auto; row-gap: var(--space-2xl); }
-  .hero__text { grid-row: 1; padding-top: 0; }
-  .dispatch { grid-row: 2; }
-  .stage--split .stage__head, .works__head h2, .services h2 { margin-bottom: var(--space-xl); }
-  .index .index__task, .index .index__result { margin-top: var(--space-md); }
-  .verdict { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); padding: var(--space-lg); }
-  .verdict > div + div { border-left: 0; padding-left: 0; border-top: var(--rule-hair) solid var(--color-rule); padding-top: var(--space-lg); }
+@media (max-width: 64rem) {
+  .hero__text, .demo, .case--a .case__text, .case--a .case__media, .case--b .case__text, .case--b .case__media, .case--c .case__text, .case--c .case__media, .about__photo, .about__text, .contact__head, .form { grid-column: 1 / -1; grid-row: auto; }
+  .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about__photo { max-width: 26rem; }
 }
 @media (max-width: 40rem) {
-  .masthead__top { flex-wrap: wrap; }
-  .masthead__links .masthead__role { display: none; }
-  .transcript__row { grid-template-columns: 3.5rem minmax(0, 1fr); }
-  .transcript__row b { grid-column: 2; padding-top: 0; }
-  .transcript__row time { grid-row: 1 / 3; }
-  .transcript__row p { grid-column: 2; }
-  .rows li { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-xs); }
-  .card-table th, .card-table td { display: block; width: 100%; }
-  .card-table th { padding-bottom: 0; border-bottom: 0; }
-  .card-table td { padding-top: var(--space-2xs); }
-  .card-table tr:first-child td { border-top: 0; }
+  .nav__links { display: none; }
+  .demo { grid-template-columns: minmax(0, 1fr); }
+  .chat { height: 480px; }
+  .figs { grid-template-columns: minmax(0, 1fr); }
+  .figs > div { padding: var(--space-md) 0; border-left: 0; border-top: 1px solid var(--color-rule); }
+  .figs > div:first-child { border-top: 0; }
+  .svc { grid-template-columns: minmax(0, 1fr); }
+  .svc li { min-height: 0; }
   .form { grid-template-columns: minmax(0, 1fr); }
-  .portrait { max-width: 22rem; }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+@media (prefers-reduced-motion: reduce) {
+  .btn, .ask, .field input, .field textarea { transition: none; }
+  .btn:active { transform: none; }
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
 
-<header class="masthead">
+<header class="nav">
   <div class="container">
-    <div class="masthead__top">
-      <a class="wordmark" href="#main">Яков Пальчиков</a>
-      <a class="btn btn--quiet masthead__action" href="#contact">Написать</a>
-    </div>
-    <hr class="rule--double">
-    <nav class="masthead__links" aria-label="Разделы">
-      <span class="masthead__role">ИИ-ассистенты первой линии для бизнеса</span>
-      <a href="#stage-1">Как это работает</a>
+    <a class="wordmark" href="#main">Яков Пальчиков</a>
+    <nav class="nav__links" aria-label="Разделы">
       <a href="#works">Работы</a>
-      <a href="#services">Что я настраиваю</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contact">Контакты</a>
     </nav>
+    <a class="btn btn--quiet" href="https://t.me/lavashek1" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
 </header>
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="container">
+    <div class="container cols">
       <div class="hero__text">
-        <h1 id="hero-title">Кто ответит вашему клиенту в 23:40?</h1>
-        <p class="lead">Я настраиваю ИИ-ассистентов, которые отвечают в чате и по телефону.</p>
+        <h1 id="hero-title">Ассистент отвечает клиенту. Менеджер получает заявку.</h1>
+        <p class="lead">Я настраиваю ИИ-ассистентов для бизнеса. Задайте вопрос в чате и посмотрите сами.</p>
         <div class="hero__actions">
           <a class="btn" href="#contact">Обсудить задачу</a>
         </div>
       </div>
-      <figure class="dispatch">
-        <blockquote>
-          <p>«Есть ли в наличии Vega в синем? Хочу посмотреть завтра».</p>
-        </blockquote>
-        <figcaption>Пятница, 23:40, чат автосалона. Пример из учебного проекта.</figcaption>
-      </figure>
-    </div>
-  </section>
 
-  <section class="stage stage--split" id="stage-1" aria-labelledby="s1">
-    <div class="container">
-      <hr class="rule--double stage__rule">
-      <div class="grid">
-        <div class="stage__head">
-          <h2 id="s1">1. Клиент спрашивает ночью</h2>
-          <p class="lead">Ассистент отвечает через минуту, по ценам и наличию вашей компании.</p>
-        </div>
-        <figure class="stage__body transcript">
-          <div class="transcript__row transcript__row--client"><time>23:40</time><b>Клиент</b><p>Есть ли в наличии Vega в синем? Хочу посмотреть завтра.</p></div>
-          <div class="transcript__row transcript__row--bot"><time>23:40</time><b>Ассистент</b><p>Есть одна, стоит в салоне. Записать вас на тест-драйв? Скажите удобное время.</p></div>
-          <div class="transcript__row transcript__row--client"><time>23:42</time><b>Клиент</b><p>Давайте в 11. А скидку сделаете?</p></div>
-          <div class="transcript__row transcript__row--bot"><time>23:42</time><b>Ассистент</b><p>Записал на 11:00. Скидку решает менеджер, я передал ему ваш вопрос.</p></div>
-          <figcaption>Диалог из учебного проекта: дилер и марка Vega условные.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+      <div class="demo" data-demo>
+        <section class="chat" aria-label="Демонстрация: чат автосалона">
+          <div class="chat__head"><b>Чат автосалона</b><span>демо по сценарию</span></div>
+          <ol class="chat__log" aria-live="polite" data-log>
+            <li class="msg msg--bot">Здравствуйте! Я ассистент салона. Подскажу по наличию, запишу на тест-драйв.</li>
+            <li class="msg msg--client" data-static>Есть Vega в синем?</li>
+            <li class="msg msg--bot" data-static>Есть одна, стоит в салоне. Записать вас на тест-драйв?</li>
+            <li class="msg msg--client" data-static>А скидку сделаете?</li>
+            <li class="msg msg--check" data-static>Проверка остановила черновик «<del>Конечно, сделаем скидку!</del>»: скидку подтверждает сотрудник.</li>
+            <li class="msg msg--bot" data-static>Скидку решает менеджер. Я передал ему ваш вопрос, он ответит до визита.</li>
+          </ol>
+          <div class="chat__ask" data-ask hidden></div>
+        </section>
 
-  <section class="stage stage--wide" aria-labelledby="s2">
-    <div class="container">
-      <hr class="rule--double stage__rule">
-      <div class="grid">
-        <div class="stage__head">
-          <h2 id="s2">2. Ассистент не обещает лишнего</h2>
-          <p class="lead">Скидки, гарантии и сроки ремонта подтверждает только сотрудник.</p>
-        </div>
-        <div class="stage__body verdict">
+        <aside class="handoff" aria-label="Карточка для менеджера">
           <div>
-            <h3>Черновик нейросети</h3>
-            <p><del>Конечно, скидку сделаем!</del></p>
+            <p class="handoff__title">Карточка для менеджера</p>
+            <p class="handoff__status" data-status>Заполняется по ходу разговора</p>
           </div>
-          <div>
-            <h3>Ушло клиенту</h3>
-            <p><ins>Скидку решает менеджер, я передал ему ваш вопрос.</ins></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="stage stage--wide" aria-labelledby="s3">
-    <div class="container">
-      <hr class="rule--double stage__rule">
-      <div class="grid">
-        <div class="stage__head">
-          <h2 id="s3">3. Утром менеджер видит карточку</h2>
-          <p class="lead">Ему не нужно перечитывать переписку: всё главное уже собрано.</p>
-        </div>
-        <div class="stage__body">
-          <table class="card-table">
-            <caption>Карточка обращения, пример. Телефон клиента скрыт от нейросети.</caption>
-            <tbody>
-              <tr><th scope="row">Клиент</th><td>Из чата автосалона, ночью</td></tr>
-              <tr><th scope="row">Уже сделано</th><td>Записан на тест-драйв, завтра в 11:00</td></tr>
-              <tr><th scope="row">Решить вам</th><td>Скидка на Vega</td></tr>
-              <tr><th scope="row">Ответить</th><td>До визита клиента</td></tr>
-            </tbody>
-          </table>
-        </div>
+          <dl>
+            <div><dt>Интерес</dt><dd data-field="interest">Vega, синяя, в наличии</dd></div>
+            <div><dt>Запись</dt><dd data-field="booking" class="is-empty">пока нет</dd></div>
+            <div><dt>Решить менеджеру</dt><dd data-field="decide">Скидка на Vega</dd></div>
+            <div><dt>Телефон</dt><dd>скрыт от нейросети</dd></div>
+          </dl>
+        </aside>
+        <p class="demo__note">Ответы в демо написаны заранее, нейросеть здесь не подключена. Салон и марка Vega условные, из учебного проекта.</p>
       </div>
     </div>
   </section>
@@ -328,61 +310,114 @@ p { margin: 0; text-wrap: pretty; }
   <section class="works" id="works" aria-labelledby="works-title">
     <div class="container">
       <div class="works__head">
-        <h2 id="works-title">Три проекта 2026 года</h2>
-        <p class="lead">Задача и результат для заказчика.</p>
+        <h2 id="works-title">Что я уже собрал</h2>
+        <p class="lead">Три проекта 2026 года: учебные и тестовое задание. У каждого есть, что открыть и проверить.</p>
       </div>
-      <ol class="index">
-        <li class="is-lead">
-          <h3>Ассистенты для автосалона<span class="index__meta">Учебный проект</span></h3>
-          <dl class="index__task"><dt>Задача</dt><dd>Первая линия для продаж, сервиса и подбора персонала в одном чате.</dd></dl>
-          <dl class="index__result"><dt>Результат</dt><dd>Ночные обращения не теряются, сложные вопросы доходят до сотрудника с карточкой.</dd></dl>
-          <a class="index__link" href="https://yagitpa.github.io/avtograd-ai-assistants/" target="_blank" rel="noopener">Страница проекта</a>
-        </li>
-        <li>
-          <h3>Голосовой агент для мебельной фабрики<span class="index__meta">Тестовое задание</span></h3>
-          <dl class="index__task"><dt>Задача</dt><dd>Обзвонить заявки на кухни и понять, кого передать дизайнеру.</dd></dl>
-          <dl class="index__result"><dt>Результат</dt><dd>Дизайнер получает отобранные заявки, занятым клиентам назначен перезвон.</dd></dl>
-        </li>
-        <li>
-          <h3>Ассистент по базе знаний<span class="index__meta">Учебный проект</span></h3>
-          <dl class="index__task"><dt>Задача</dt><dd>Находить ответ в десятках документов по смыслу.</dd></dl>
-          <dl class="index__result"><dt>Результат</dt><dd>Ответ со ссылкой на источник. Нет ответа в документах, ассистент так и скажет.</dd></dl>
-        </li>
-      </ol>
-      <p class="works__note">Компании и данные в проектах условные. На реальном потоке клиентов эффект ещё не измерялся, поэтому цифр здесь нет.</p>
+
+      <article class="case case--a" aria-labelledby="c1">
+        <div class="cols">
+          <div class="case__text">
+            <p class="case__kind">Учебный проект, чат в Telegram</p>
+            <h3 id="c1">Три ассистента для автосалона</h3>
+            <dl>
+              <div><dt>Задача</dt><dd>Отвечать клиентам о наличии, ТО, ремонте и вакансиях в одном чате и в любое время.</dd></div>
+              <div><dt>Результат</dt><dd>Сложные вопросы уходят сотруднику с карточкой, обещания скидок и сроков останавливает проверка.</dd></div>
+            </dl>
+            <p><a href="https://yagitpa.github.io/avtograd-ai-assistants/" target="_blank" rel="noopener">Открыть страницу проекта</a></p>
+          </div>
+          <figure class="case__media shot">
+            <img src="images/avtograd.jpg" width="1200" height="750" alt="Страница проекта: «Три ассистента, которым можно доверить клиента», с цифрами проверок" loading="lazy">
+            <figcaption>Страница проекта на GitHub Pages.</figcaption>
+          </figure>
+          <dl class="figs">
+            <div><dt>265</dt><dd>проверок ответа, которые работают без нейросети</dd></div>
+            <div><dt>0</dt><dd>нарушений дошло до клиента в прогоне 60 диалогов</dd></div>
+            <div><dt>29</dt><dd>решений в журнале проекта, с причинами</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case case--b" aria-labelledby="c2">
+        <div class="cols">
+          <div class="case__text">
+            <p class="case__kind">Тестовое задание, голосовой агент</p>
+            <h3 id="c2">Обзвон заявок для мебельной фабрики</h3>
+            <dl>
+              <div><dt>Задача</dt><dd>Позвонить клиенту, понять бюджет и сроки, передать подходящую заявку дизайнеру.</dd></div>
+              <div><dt>Результат</dt><dd>Агент не переспрашивает известное, честно говорит, что он ИИ, и договаривается о перезвоне.</dd></div>
+            </dl>
+          </div>
+          <figure class="case__media log">
+            <ol>
+              <li><b>1.0</b><span>Первая квалификация: кухни отдельно от другой мебели</span></li>
+              <li><b>1.4</b><span>Агент восстанавливается, когда клиент перебивает</span></li>
+              <li><b>1.5</b><span>Ровно сто тысяч считается подходящим бюджетом</span></li>
+              <li><b>1.9</b><span>Сценарий пересобран по разбору 56 расшифровок тестовых звонков</span></li>
+            </ol>
+            <figcaption>Версии промпта и что исправляла каждая.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="case case--c" aria-labelledby="c3">
+        <div class="cols">
+          <div class="case__text">
+            <p class="case__kind">Учебный проект, ассистент по документам</p>
+            <h3 id="c3">Ответы строго по базе знаний</h3>
+            <dl>
+              <div><dt>Задача</dt><dd>Находить ответ в десятках документов, когда человек помнит смысл, а не слова.</dd></div>
+              <div><dt>Результат</dt><dd>У каждого утверждения есть источник. Если ответа нет, ассистент так и говорит.</dd></div>
+            </dl>
+          </div>
+          <figure class="case__media term">
+<pre><span class="p">$</span> zassist ask "Как поднять Redis, чтобы кэш переживал перезапуск сервера?"
+
+<span class="hi">В конспектах этого нет.</span> Рядом лежит информация о кэшировании
+и его особенностях [1], [2], [3], а также о работе RAG-ассистента
+с кэшем [4].</pre>
+            <figcaption>Настоящий ответ ассистента: он не выдумывает то, чего нет в документах.</figcaption>
+          </figure>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="statement" aria-label="Принцип работы">
-    <div class="container grid">
-      <p>Я отвечаю за то, что ассистент скажет вашему клиенту.</p>
-      <figure class="portrait">
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="container cols">
+      <figure class="about__photo">
         <img src="images/yakov.jpg" width="800" height="1000" alt="Яков Пальчиков читает книгу на скамейке в осеннем парке" loading="lazy">
-        <figcaption>Яков Пальчиков, промпт-инженер.</figcaption>
       </figure>
+      <div class="about__text">
+        <h2 id="about-title">Меня зовут Яков</h2>
+        <p>Я собираю ассистентов, которые работают по данным компании и не обещают клиентам лишнего.</p>
+        <p>Каждое решение проверяю прогонами и записываю в журнал, чтобы было видно, почему ассистент ведёт себя именно так.</p>
+        <ul class="stack" aria-label="Инструменты">
+          <li>Python</li><li>n8n</li><li>YandexGPT</li><li>GigaChat</li><li>OpenAI</li><li>Telegram</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="services" id="services" aria-labelledby="services-title">
+  <section class="services" aria-labelledby="svc-title">
     <div class="container">
-      <h2 id="services-title">Что я настраиваю</h2>
-      <ul class="rows">
-        <li><h3>Чат-ассистента</h3><p>В Telegram или на сайте, по вашим ценам и правилам.</p></li>
-        <li><h3>Голосового агента</h3><p>Звонит по заявкам, уточняет бюджет и сроки.</p></li>
-        <li><h3>Поиск по документам</h3><p>Сотрудники получают ответ с источником.</p></li>
-        <li><h3>Фоновые сценарии</h3><p>Напоминания и сводки по расписанию, без участия людей.</p></li>
+      <h2 id="svc-title">Что я настраиваю</h2>
+      <ul class="svc">
+        <li><h3>Чат-ассистент</h3><p>В Telegram или на сайте, по вашим ценам, наличию и правилам.</p></li>
+        <li><h3>Голосовой агент</h3><p>Звонит по заявкам, уточняет бюджет и сроки, назначает перезвон.</p></li>
+        <li><h3>Поиск по документам</h3><p>Сотрудники получают ответ из ваших файлов со ссылкой на источник.</p></li>
+        <li><h3>Фоновые сценарии</h3><p>Напоминания, сводки и выгрузки в n8n по расписанию.</p></li>
       </ul>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">
-    <div class="container">
+    <div class="container cols">
       <div class="contact__head">
         <h2 id="contact-title">Расскажите, кто вам пишет</h2>
         <p class="lead">Отвечу и предложу, с чего начать ассистента.</p>
         <dl class="contact__facts">
-          <dt>Почта</dt><dd><a href="mailto:y.palchikov@gmail.com">y.palchikov@gmail.com</a></dd>
           <dt>Telegram</dt><dd><a href="https://t.me/lavashek1" target="_blank" rel="noopener">@lavashek1</a></dd>
+          <dt>Почта</dt><dd><a href="mailto:y.palchikov@gmail.com">y.palchikov@gmail.com</a></dd>
         </dl>
       </div>
       <form class="form" data-endpoint="" novalidate>
@@ -391,7 +426,7 @@ p { margin: 0; text-wrap: pretty; }
         <div class="field field--wide"><label for="f-email">Почта</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field field--wide"><label for="f-topic">Тема сообщения</label><textarea id="f-topic" name="topic" required></textarea></div>
         <div class="form__foot">
-          <button class="btn" type="submit">Отправить заявку</button>
+          <button class="btn btn--light" type="submit">Отправить заявку</button>
           <p class="form__help" id="form-help" aria-live="polite"></p>
         </div>
       </form>
@@ -399,22 +434,96 @@ p { margin: 0; text-wrap: pretty; }
   </section>
 </main>
 
-<footer class="colophon">
+<footer class="foot">
   <div class="container">
-    <hr class="rule--double">
-    <p><b>Яков Пальчиков.</b> ИИ-ассистенты первой линии для бизнеса: чат, телефон, база знаний и передача менеджеру.</p>
-    <p>Сайт собран в ноябре 2026 года как домашнее задание курса промпт-инжиниринга Zerocoder. Кейсы на странице учебные, компании и данные в них условные.</p>
+    <p>Яков Пальчиков, 2026. Сайт сделан как домашнее задание курса промпт-инжиниринга Zerocoder. Кейсы учебные и тестовые, компании и данные в них условные.</p>
   </div>
 </footer>
 
 <script>
+(() => {
+  const demo = document.querySelector('[data-demo]');
+  if (!demo) return;
+  const log = demo.querySelector('[data-log]');
+  const ask = demo.querySelector('[data-ask]');
+  const status = demo.querySelector('[data-status]');
+  const fields = Object.fromEntries([...demo.querySelectorAll('[data-field]')].map((d) => [d.dataset.field, d]));
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const steps = [
+    { q: 'Есть Vega в синем?', a: 'Есть одна, стоит в салоне. Записать вас на тест-драйв?', set: { interest: 'Vega, синяя, в наличии' } },
+    { q: 'Запишите на завтра в 11', a: 'Записал на тест-драйв, завтра в 11:00. Утром пришлю напоминание.', set: { booking: 'Тест-драйв, завтра 11:00' } },
+    { q: 'А скидку сделаете?', check: 'Конечно, сделаем скидку!', a: 'Скидку решает менеджер. Я передал ему ваш вопрос, он ответит до визита.', set: { decide: 'Скидка на Vega' } },
+    { q: 'Вы робот?', a: 'Да, я ИИ-ассистент салона. Если удобнее, позову человека.' },
+    { q: 'Позовите человека', a: 'Передал разговор менеджеру. Он продолжит в этом же чате.', status: 'Передано менеджеру, ждёт ответа' },
+  ];
+  const empty = { interest: 'пока нет', booking: 'пока нет', decide: 'пока нет' };
+  const greeting = log.firstElementChild.cloneNode(true);
+  let busy = false;
+
+  const add = (cls, html) => {
+    const li = document.createElement('li');
+    li.className = 'msg ' + cls;
+    li.innerHTML = html;
+    log.append(li);
+    log.scrollTop = log.scrollHeight;
+    return li;
+  };
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const wait = (ms) => new Promise((r) => setTimeout(r, calm ? 0 : ms));
+
+  const reset = () => {
+    log.replaceChildren(greeting.cloneNode(true));
+    Object.entries(empty).forEach(([k, v]) => { fields[k].textContent = v; fields[k].className = 'is-empty'; });
+    status.textContent = 'Заполняется по ходу разговора';
+    renderButtons();
+  };
+
+  const renderButtons = () => {
+    ask.replaceChildren();
+    const left = steps.filter((s) => !s.done);
+    left.forEach((s) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'ask'; b.textContent = s.q;
+      b.addEventListener('click', () => run(s));
+      ask.append(b);
+    });
+    if (left.length < steps.length) {
+      const r = document.createElement('button');
+      r.type = 'button'; r.className = 'ask ask--reset'; r.textContent = 'Начать заново';
+      r.addEventListener('click', () => { steps.forEach((s) => (s.done = false)); reset(); });
+      ask.append(r);
+    }
+  };
+
+  const run = async (s) => {
+    if (busy) return;
+    busy = true; s.done = true;
+    ask.querySelectorAll('button').forEach((b) => (b.disabled = true));
+    add('msg--client', esc(s.q));
+    const typing = add('msg--typing', 'ассистент пишет…');
+    await wait(700);
+    if (s.check) { typing.remove(); add('msg--check', 'Проверка остановила черновик «<del>' + esc(s.check) + '</del>»: скидку подтверждает сотрудник.'); await wait(600); log.append(typing); }
+    typing.remove();
+    add('msg--bot', esc(s.a));
+    demo.querySelectorAll('.is-new').forEach((d) => d.classList.remove('is-new'));
+    Object.entries(s.set || {}).forEach(([k, v]) => { fields[k].textContent = v; fields[k].className = 'is-new'; });
+    if (s.status) status.textContent = s.status;
+    busy = false;
+    renderButtons();
+  };
+
+  ask.hidden = false;
+  reset();
+})();
+
 document.querySelectorAll('form[data-endpoint]').forEach((form) => {
   const help = form.querySelector('[aria-live]');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const fields = [...form.querySelectorAll('input, textarea')];
-    const bad = fields.filter((f) => !f.checkValidity());
-    fields.forEach((f) => f.setAttribute('aria-invalid', bad.includes(f) ? 'true' : 'false'));
+    const fs = [...form.querySelectorAll('input, textarea')];
+    const bad = fs.filter((f) => !f.checkValidity());
+    fs.forEach((f) => f.setAttribute('aria-invalid', bad.includes(f) ? 'true' : 'false'));
     if (bad.length) {
       bad[0].setAttribute('aria-describedby', help.id);
       const label = form.querySelector('label[for="' + bad[0].id + '"]').textContent;
@@ -422,7 +531,7 @@ document.querySelectorAll('form[data-endpoint]').forEach((form) => {
       bad[0].focus();
       return;
     }
-    if (!form.dataset.endpoint) { help.textContent = 'Ничего не отправлено: форма пока не подключена. Напишите на y.palchikov@gmail.com или в Telegram @lavashek1.'; return; }
+    if (!form.dataset.endpoint) { help.textContent = 'Ничего не отправлено: форма пока не подключена. Напишите в Telegram @lavashek1 или на y.palchikov@gmail.com.'; return; }
     fetch(form.dataset.endpoint, { method: 'POST', body: new FormData(form) })
       .then((r) => { help.textContent = r.ok ? 'Заявка ушла. Отвечу на ' + form.querySelector('[type=email]').value.trim() + '.' : 'Не получилось отправить. Попробуйте через минуту.'; })
       .catch(() => { help.textContent = 'Не получилось отправить. Попробуйте через минуту.'; });
